@@ -1,0 +1,61 @@
+# Environment variables
+.env
+*.env.local
+
+# Terraform
+terraform.tfvars
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+crash.log
+crash.*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.venv/
+
+# Lambda artifacts
+lambda_layer/python/
+lambda_layer/*.zip
+lambda/*.zip
+*.zip
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Test coverage
+htmlcov/
+.coverage
+.pytest_cache/
+
+# Frontend config (auto-generated)
+frontend/config.js
+local/static/config.js
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+local/quizify.db
+
+# Local uploads
+local/uploads/
+uploads/

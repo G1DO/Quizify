@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizify - Learn at Your Own Pace</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>Quizify</h2>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Learn <span class="highlight">Anytime</span>,<br>
+                        at Your <span class="highlight">Own Pace</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Transform your study notes into interactive quizzes instantly with AI-powered question generation
+                    </p>
+                    <button class="cta-button" onclick="document.getElementById('uploadSection').scrollIntoView({behavior: 'smooth'})">
+                        Let's Start →
+                    </button>
+                    <p class="hero-note">✨ Powered by Google Gemini AI • 100% Free</p>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card card-1">📚 PDF Support</div>
+                    <div class="floating-card card-2">✍️ DOCX Files</div>
+                    <div class="floating-card card-3">⚡ Instant Results</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload Section -->
+        <section class="upload-section-modern" id="uploadSection">
+            <h2 class="section-title">Upload Your Notes</h2>
+            <p class="section-subtitle">Drop your study materials and get instant quiz questions</p>
+
+            <div class="upload-box-modern" id="dropZone">
+                <div class="upload-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                </div>
+                <h3>Drag & Drop Your File Here</h3>
+                <p class="upload-desc">or</p>
+                <label class="browse-btn-modern">
+                    Browse Files
+                    <input type="file" id="fileInput" accept=".pdf,.docx,.doc,.txt" hidden>
+                </label>
+                <p class="file-types-modern">Supported: PDF, DOCX, TXT (Max 10MB)</p>
+            </div>
+
+            <div class="selected-file-modern" id="selectedFile" style="display: none;">
+                <div class="file-icon">📄</div>
+                <div class="file-details">
+                    <span class="file-name" id="fileName"></span>
+                    <span class="file-status">Ready to process</span>
+                </div>
+                <button class="remove-btn-modern" id="removeFile">&times;</button>
+            </div>
+
+            <button class="generate-btn-modern" id="generateBtn" disabled>
+                Generate Questions
+            </button>
+        </section>
+
+        <!-- Status Section -->
+        <section class="status-section-modern" id="statusSection" style="display: none;">
+            <div class="status-content">
+                <div class="spinner-modern"></div>
+                <h3 id="statusText">Processing your document...</h3>
+                <p>This usually takes 20-60 seconds</p>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section-modern" id="resultsSection" style="display: none;">
+            <div class="results-header-modern">
+                <h2 id="topicTitle">Your Quiz Questions</h2>
+                <p id="fileInfo" class="results-info"></p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" data-tab="mcq">Multiple Choice</button>
+                <button class="tab" data-tab="short">Short Answer</button>
+            </div>
+
+            <div class="tab-content active" id="mcqTab">
+                <div id="mcqContainer"></div>
+            </div>
+
+            <div class="tab-content" id="shortTab">
+                <div id="shortContainer"></div>
+            </div>
+
+            <button class="new-upload-btn-modern" id="newUploadBtn">
+                📤 Upload Another File
+            </button>
+        </section>
+
+        <!-- Past Uploads Section -->
+        <section class="past-uploads-section-modern">
+            <h3>Recent Uploads</h3>
+            <div id="pastUploadsContainer">
+                <p class="loading-text">Loading...</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
